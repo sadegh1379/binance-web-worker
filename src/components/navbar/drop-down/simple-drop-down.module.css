@@ -1,0 +1,85 @@
+:root {
+  --color-navbar-dropdown-bg: #ffffff;
+  --color-navbar-drop-title: #000000;
+  --color-navbar-drop-sub-title: #6d6d70;
+  --color-navbar-badge-bg: #000000;
+  --color-navbar-drop-down-box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.16);
+}
+
+.drop_down_container {
+  padding: 8px 0;
+  border-radius: 8px;
+  background-color: var(--color-navbar-dropdown-bg);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  top: 64px;
+  left: -10px;
+  transition: all 0.1s linear 0s;
+  width: 416px;
+  box-shadow: var(--color-navbar-drop-down-box-shadow);
+}
+
+.drop_down_item {
+  padding: 12px 20px;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  grid-template-rows: auto auto;
+  gap: 2px 12px;
+  text-decoration: none;
+}
+
+.icon_container {
+  padding: 8px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  grid-row: 1/3;
+}
+
+.icon_container > svg {
+  color: var(--color-navbar-badge-bg);
+  width: 18px;
+  height: 18px;
+}
+
+.title {
+  grid-column: 2;
+  grid-row: 1;
+  line-height: 17px;
+  font-size: 0.875rem;
+  color: var(--color-navbar-drop-title);
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.description {
+  grid-column: 2;
+  grid-row: 2;
+  line-height: 15px;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--color-navbar-drop-sub-title);
+}
+
+.navbar_main_tournament,
+.navbar_main_rewards_hub {
+  display: none;
+}
+
+@media (max-width: 1317px) {
+  .navbar_main_tournament {
+    display: grid;
+  }
+}
+
+@media (max-width: 1207px) {
+  .navbar_main_rewards_hub {
+    display: grid;
+  }
+}

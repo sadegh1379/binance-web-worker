@@ -1,0 +1,70 @@
+:root {
+  --background-color: #fff;
+  --border-color: #ddd;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --button-bg-color: #fcd535;
+  --chart-border-color: #fcd535;
+  --button-hover-bg-color: #fcd535;
+  --button-text-color: white;
+  --color-last-update: #aaa;
+}
+
+.app {
+  background-color: var(--background-color);
+  overflow-x: hidden;
+}
+
+.chart_container {
+  position: relative;
+  top: 10px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 500px;
+  background-color: var(--background-color);
+  border: 3px solid var(--chart-border-color);
+  border-radius: 8px;
+}
+
+.button_group {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  gap: 5px;
+}
+
+.button_group > button {
+  min-width: 10px;
+}
+
+.loader {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: var(--button-bg-color);
+  z-index: 10;
+}
+
+.last_updated {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--color-last-update);
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .chart_container {
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart_container {
+    height: 300px;
+  }
+}
