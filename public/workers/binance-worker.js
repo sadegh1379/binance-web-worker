@@ -1,14 +1,9 @@
 let intervalId;
-let isFirstInit = true;
 
 onmessage = (e) => {
   const data = e.data;
 
   if (data.type === 'init') {
-    if (isFirstInit) {
-      fetchData(data.symbol, data.interval);
-      isFirstInit = false;
-    }
     startUpdating(data.symbol, data.interval, data.refetchInterval);
   }
 };
@@ -31,7 +26,7 @@ const startUpdating = (symbol, interval, refetchInterval = 3000) => {
 
 const fetchData = (symbol, interval) => {
   const endTime = Date.now();
-  const startTime = endTime - 24 * 60 * 60 * 1000;
+  const startTime = endTime - 72 * 60 * 60 * 1000;
 
   fetch(
     `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&startTime=${startTime}&endTime=${endTime}`,

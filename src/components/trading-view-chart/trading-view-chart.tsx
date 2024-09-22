@@ -39,22 +39,10 @@ const CandleChart: React.FC = () => {
         type: 'init',
         symbol: 'BTCUSDT',
         interval: selectedInterval,
-        refetchInterval: 60 * 1000,
+        refetchInterval: 500,
       });
 
-      const handleResize = () => {
-        if (chartContainerRef.current) {
-          chart.applyOptions({
-            width: chartContainerRef.current.clientWidth,
-            height: chartContainerRef.current.clientHeight,
-          });
-        }
-      };
-
-      window.addEventListener('resize', handleResize);
-
       return () => {
-        window.removeEventListener('resize', handleResize);
         chart.remove();
         workerRef.current?.terminate();
       };
@@ -63,7 +51,7 @@ const CandleChart: React.FC = () => {
 
   const handleIntervalChange = (interval: string) => {
     setSelectedInterval(interval);
-    setLoading(true); // Show loading when interval changes
+    setLoading(true);
     workerRef.current?.postMessage({
       type: 'init',
       symbol: 'BTCUSDT',
